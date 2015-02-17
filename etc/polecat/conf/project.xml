@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<polecat_project xmlns:polecat="http://polecat.kuhrman.com/">
+  <polecat:package id="0e52b634-9b5d-11e4-ad44-0050569e00a2" name="AblePolecat-Mod-PhpMarkdown" type="MOD">
+    <polecat:repositoryUrl>https://github.com/kkuhrman/AblePolecat-Mod-PhpMarkdown</polecat:repositoryUrl>
+    <polecat:classes>
+      <polecat:class id="b720e664-9b45-11e4-ad44-0050569e00a2" name="AblePolecat_Component_PhpMarkdown">
+        <polecat:path>Component/PhpMarkdown.php</polecat:path>
+        <polecat:classFactoryMethod>create</polecat:classFactoryMethod>
+      </polecat:class>
+      <polecat:class id="b720e664-9b45-11e4-ad44-0050569e00a2" name="AblePolecat_Data_Primitive_Scalar_String_Markdown">
+        <polecat:path>Data/Primitive/Scalar/String/Markdown.php</polecat:path>
+        <polecat:classFactoryMethod>typeCast</polecat:classFactoryMethod>
+      </polecat:class>
+    </polecat:classes>
+    <polecat:classLibraries>
+      <polecat:classLibrary id="b8ef26a9-b62c-11e4-a12d-0050569e00a2" name="php-markdown" type="LIB" use="1">
+        <polecat:repositoryUrl>https://github.com/michelf/php-markdown</polecat:repositoryUrl>
+        <polecat:path>php-markdown</polecat:path>
+      </polecat:classLibrary>
+    </polecat:classLibraries>
+  </polecat:package>
+</polecat_project>
