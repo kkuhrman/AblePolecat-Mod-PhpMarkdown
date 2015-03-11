@@ -18,5 +18,8 @@
         <polecat:path>php-markdown</polecat:path>
       </polecat:classLibrary>
     </polecat:classLibraries>
+    <polecat:components>
+      <polecat:component id="b720e664-9b45-11e4-ad44-0050569e00a2" name="AblePolecat_Component_PhpMarkdown" />
+    </polecat:components>
   </polecat:package>
 </polecat_project>
