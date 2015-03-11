@@ -7,7 +7,7 @@
  */
 
 if (!defined('PHP_MARKDOWN_LIB_PATH')) {
-  $PHP_MARKDOWN_LIB_PATH = implode(DIRECTORY_SEPARATOR, array(AblePolecat_Server_Paths::getFullPath('php-markdown'), 'Michelf'));
+  $PHP_MARKDOWN_LIB_PATH = implode(DIRECTORY_SEPARATOR, array(AblePolecat_Server_Paths::getFullPath('b8ef26a9-b62c-11e4-a12d-0050569e00a2'), 'Michelf'));
   define('PHP_MARKDOWN_LIB_PATH', $PHP_MARKDOWN_LIB_PATH);
 }
 require_once(implode(DIRECTORY_SEPARATOR, array(PHP_MARKDOWN_LIB_PATH, 'Markdown.inc.php')));
