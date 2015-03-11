@@ -6,6 +6,7 @@
  * @copyright Copyright © 2015 Able Distributors Inc. All rights reserved.
  */
 
+require_once(implode(DIRECTORY_SEPARATOR, array(ABLEPOLECAT_MOD_PHPMARKDOWN_SRC_PATH, 'Data', 'Primitive', 'Scalar', 'String', 'Markdown.php')));
 require_once(implode(DIRECTORY_SEPARATOR, array(ABLE_POLECAT_CORE, 'Component.php')));
 
 interface AblePolecat_Component_PhpMarkdownInterface extends AblePolecat_ComponentInterface {
@@ -126,7 +127,7 @@ class AblePolecat_Component_PhpMarkdown
     if (isset($entityBodyStringSubstitutes) && is_array($entityBodyStringSubstitutes)) {
       foreach($entityBodyStringSubstitutes as $marker => $text) {
         $marker = str_replace(array('%7B', '%7D'), array('{', '}'), $marker);
-        $transformText = Markdown::defaultTransform($text);
+        $transformText = AblePolecat_Data_Primitive_Scalar_String_Markdown::typeCast($text);
         $this->entityBodyStringSubstitutes[$marker] = $transformText;
       }
     }
