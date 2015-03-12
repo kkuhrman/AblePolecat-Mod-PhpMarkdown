@@ -69,20 +69,13 @@ class AblePolecat_Component_PhpMarkdown
     $AblePolecat_List_PhpMarkdown_Element = AblePolecat_Dom::getElementById($Document, 'AblePolecat_Markdown_Outer_Wrapper');
     
     //
-    // Get raw resource (data).
+    // Create element containing markdown text.
     //
-    $Resource = $this->getResource();
-    
-    //
-    // @todo: complete substitution.
-    //    
-    $substituteMarkers = array_keys($this->entityBodyStringSubstitutes);
-    $transformedElementStr = str_replace($substituteMarkers, $this->entityBodyStringSubstitutes, $regularPhpMarkdownTemplateStr);
-    $transformedElement = @AblePolecat_Dom::getDocumentElementFromString($transformedElementStr);
-    $transformedElement = AblePolecat_Dom::appendChildToParent(
-      $transformedElement, 
+    AblePolecat_Dom::createRepeatableElementFromTemplate(
       $Document,
-      $AblePolecat_List_PhpMarkdown_Element
+      $AblePolecat_List_PhpMarkdown_Element,
+      $this->getEntityBodyStringSubstitutes(),
+      $regularPhpMarkdownTemplateStr
     );
     
     return $templateElement;
@@ -126,7 +119,11 @@ class AblePolecat_Component_PhpMarkdown
   public function setEntityBodyStringSubstitutes($entityBodyStringSubstitutes) {
     if (isset($entityBodyStringSubstitutes) && is_array($entityBodyStringSubstitutes)) {
       foreach($entityBodyStringSubstitutes as $marker => $text) {
-        $marker = str_replace(array('%7B', '%7D'), array('{', '}'), $marker);
+        // $marker = str_replace(array('%7B', '%7D'), array('{', '}'), $marker);
+        //
+        // Remove encoded merge field delimiters (merge field syntax converts 'text' into '{!text}').
+        //
+        $marker = str_replace(array('%7B!', '%7D'), '', $marker);
         $transformText = AblePolecat_Data_Primitive_Scalar_String_Markdown::typeCast($text);
         $this->entityBodyStringSubstitutes[$marker] = $transformText;
       }
@@ -155,6 +152,6 @@ class AblePolecat_Component_PhpMarkdown
   protected function initialize() {
     $this->setTagName('div');
     $this->getTemplateElement();
-    $this->entityBodyStringSubstitutes = array();
+    $this->entityBodyStringSubstitutes = new AblePolecat_Data_Primitive_Array();
   }
 }
