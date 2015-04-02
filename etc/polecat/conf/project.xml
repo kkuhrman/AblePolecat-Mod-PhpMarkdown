@@ -7,7 +7,7 @@
         <polecat:path>Component/PhpMarkdown.php</polecat:path>
         <polecat:classFactoryMethod>create</polecat:classFactoryMethod>
       </polecat:class>
-      <polecat:class id="b720e664-9b45-11e4-ad44-0050569e00a2" name="AblePolecat_Data_Primitive_Scalar_String_Markdown">
+      <polecat:class id="58396a00-d947-11e4-a4ae-0050569e00a2" name="AblePolecat_Data_Primitive_Scalar_String_Markdown">
         <polecat:path>Data/Primitive/Scalar/String/Markdown.php</polecat:path>
         <polecat:classFactoryMethod>typeCast</polecat:classFactoryMethod>
       </polecat:class>
