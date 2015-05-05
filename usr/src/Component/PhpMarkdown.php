@@ -26,28 +26,6 @@ class AblePolecat_Component_PhpMarkdown
   private $entityBodyStringSubstitutes;
   
   /********************************************************************************
-   * Implementation of AblePolecat_AccessControl_Article_StaticInterface.
-   ********************************************************************************/
-  
-  /**
-   * Return unique, system-wide identifier.
-   *
-   * @return UUID.
-   */
-  public static function getId() {
-    return self::UUID;
-  }
-  
-  /**
-   * Return Common name.
-   *
-   * @return string Common name.
-   */
-  public static function getName() {
-    return self::NAME;
-  }
-  
-  /********************************************************************************
    * Implementation of AblePolecat_Data_PrimitiveInterface.
    ********************************************************************************/
   
@@ -88,17 +66,20 @@ class AblePolecat_Component_PhpMarkdown
   /**
    * Create an instance of component initialized with given resource data.
    *
+   * @param AblePolecat_Registry_Entry_ComponentInterface $ComponentRegistration
    * @param AblePolecat_ResourceInterface $Resource.
    *
    * @return AblePolecat_ComponentInterface.
    */
-  public static function create(AblePolecat_ResourceInterface $Resource) {
+  public static function create(
+    AblePolecat_Registry_Entry_ComponentInterface $ComponentRegistration,
+    AblePolecat_ResourceInterface $Resource
+  ) {
     
-    $Component = new AblePolecat_Component_PhpMarkdown();
-    $Component->setResource($Resource);
+    $Component = new AblePolecat_Component_PhpMarkdown($ComponentRegistration, $Resource);
     $args = func_get_args();
-    if (isset($args[1]) && is_array($args[1])) {
-      $Component->setEntityBodyStringSubstitutes($args[1]);
+    if (isset($args[2]) && is_array($args[2])) {
+      $Component->setEntityBodyStringSubstitutes($args[2]);
     }
     return $Component;
   }
