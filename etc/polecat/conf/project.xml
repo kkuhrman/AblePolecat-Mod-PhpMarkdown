@@ -2,6 +2,7 @@
 <polecat_project xmlns:polecat="http://polecat.kuhrman.com/">
   <polecat:package id="0e52b634-9b5d-11e4-ad44-0050569e00a2" name="AblePolecat-Mod-PhpMarkdown" type="MOD">
     <polecat:repositoryUrl>https://github.com/kkuhrman/AblePolecat-Mod-PhpMarkdown</polecat:repositoryUrl>
+    <polecat:classPrefix>AblePolecat</polecat:classPrefix>
     <polecat:classes>
       <polecat:class id="b720e664-9b45-11e4-ad44-0050569e00a2" name="AblePolecat_Component_PhpMarkdown">
         <polecat:path>Component/PhpMarkdown.php</polecat:path>
